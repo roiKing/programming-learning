@@ -39,18 +39,34 @@
 ### 2.1 简单的C程序示例
 ```
 /* 一个简单的C程序 */
-#include <stdio.h>
+#include <stdio.h>  // 包含另一个文件
 int main(void) {
-    int num;  /* 定义一个名为num的变量 */
-    num = 1; /* 为num赋一个值 */
+    int num;  /* 定义一个名为num的变量 */ // 声明
+    num = 1; /* 为num赋一个值 */  // 赋值表达式语句
 
-    printf("I am a simple "); /* 使用printf()函数 */
+    printf("I am a simple "); /* 使用printf()函数 */  // 调用一个函数
     printf("computer.\n");
     printf("My favorite number is %d because it is first.\n", num);
 
     return 1;
 }  
 ```
+### 2.2 C程序解释
+```
+#include  预处理器指令
+int main(void)  main()总是第1个被调用的函数
+function a()   语句    函数是C程序的构造块
+```
+#### C语言（包含：关键字、标识符、运算符、数据）中的6种语句
+1. 标点语句
+2. 复合语句
+3. 表达式语句
+4. 选择语句
+5. 迭代语句
+6. 跳转语句
+
+### 2.3 命名  可以使用小写字母、大写字母、数字和下划线(_)命名  名称第1个字符必须是字符或下划线，不能是数字
+
 
 
 

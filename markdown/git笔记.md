@@ -11,7 +11,9 @@ ssh -T git@github.com
 5. 创建git项目
 git init
 6. 关联本地项目-远程项目
+```
 git remote add origin （git@github.com:LiJiangJiangJiang/myGitProjectRemote.git）     注意：（）的是远程项目的唯一标识符
+```
 7. 文件-暂存区,add后面是“空格 点”就表示当前目录的所有文件（注意：add和点中间有一个空格！！！大坑）
 git add .
 8. 注释内容
