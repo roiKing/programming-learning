@@ -66,7 +66,68 @@ function a()   语句    函数是C程序的构造块
 6. 跳转语句
 
 ### 2.3 命名  可以使用小写字母、大写字母、数字和下划线(_)命名  名称第1个字符必须是字符或下划线，不能是数字
+### 2.4 声明变量的4个理由
+ 1. 把所有的变量放在一处， 方便读者查找和理解程序的用途。
+ 2. 声明变量会促使你在编写程序之前做一些计划。
+ 3. 声明变量有助于发现隐藏在程序中的小错误。
+ 4. 如果事先未声明变量，C程序将无法通过编译。
+### 2.5 转义序列   
+| 组合    | 意思 |
+| :-------: | :--:  |
+| \n      | 换行 |
+| \a      | 警报 |
+| \b      | 退格 |
+| \f      | 换页 |
+| \r      | 回车 |
+| \t      | 水平制表 |
+| \v      | 垂直制表 |
+| \\      | 反斜杠 |
+| \"      | 双引号 |
+| \'      | 单引号 |
+| \?      | 问号　|
+| \0oo    | 八进制 |
+| \xhh    | 十六进制 |
 
+### 2.6 占位符
+%d 
 
+### 2.7 关键字
+|    ISO    | C | 关键字 | |
+| :---: | :---: | :---: | :---: | 
+| auto | extern | short | while |
+| break | float | signed | _Alignas |
+| case | for | sizeof | _Alignof |
+| char | goto | static | _Atomic |
+| const | if | struct | _Bool |
+| continue | inline | switch | _Complex |
+| default | int | typedef | _Generic |
+| do | long | union | _Imaginary |
+| double | register | unsigned | _Noreturn |
+| else | restrict | void | _Static_assert |
+| enum | return | volatile | _Thread_local |
 
+## 第三章 数据和C
+### 3.1 示例程序
+```
+/* platinum.c -- your weight in latinum */
+# include <stdio.h>
+int main(void){
+    float weight; // 你的体重
+    float value; /* 相等重量的白金价值 */
 
+    printf("Are you worth your weight in platinum?\n");
+    printf("Let's check it out.\n");
+    printf("Please enter your weight in pounds: ");
+
+    /* 获取用户的输入 */
+    scanf("%f", &weight);
+    /* 假设白金的价格是每盎司$1700 */
+    /* 14.5833 用于把英镑常衡盎司转换为金衡盎司 */
+    value = 1700.0 * weight * 14.5833;
+    printf("Your weight in platinum is worth $%.2f.\n", value);
+    printf("You are easily worth that! If platinum prices drop,\n");
+    printf("eat more to maintain your value.\n");
+
+    return 0;
+}
+```

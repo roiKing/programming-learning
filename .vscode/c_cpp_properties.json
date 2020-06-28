@@ -22,8 +22,7 @@
                 "limitSymbolsToIncludedHeaders": true,
                 "databaseFilename": ""
             },
-            "cppStandard": "c++17",
-            //"intelliSenseMode": "clang-x86"
+            "cppStandard": "c++17"
         }
     ],
     "version": 4
