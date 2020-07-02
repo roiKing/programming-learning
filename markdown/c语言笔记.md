@@ -120,7 +120,7 @@ int main(void){
     printf("Please enter your weight in pounds: ");
 
     /* 获取用户的输入 */
-    scanf("%f", &weight);
+    scanf("%f", &weight); // %f 处理浮点值 %.2f 中的.2 用于精确控制输出
     /* 假设白金的价格是每盎司$1700 */
     /* 14.5833 用于把英镑常衡盎司转换为金衡盎司 */
     value = 1700.0 * weight * 14.5833;
@@ -131,3 +131,17 @@ int main(void){
     return 0;
 }
 ```
+
+### 3.2 数据：数据类型关键字
+| 最初K&R给出的关键字 | C90标准添加的关键字 | C99标准添加的关键字 |
+| :---: | :---: | :---: |
+| int | signed | _Bool |
+| long | void | _Complex |
+| short |  | _Imaginary |
+| unsigned |  |  |
+| char |  |  |
+| float |  |  |
+| double |  |  |
+
+
+
