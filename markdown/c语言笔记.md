@@ -142,6 +142,7 @@ int main(void){
 | char |  |  |
 | float |  |  |
 | double |  |  |
+
 int 关键字表示基本的整数型，可以为正整数、负数或零取值范围-32768~32767，long、short、unsigned、signed关键字用于提供基本整数类型的变式。char关键字用于指定字母和其他字符（如，#、￥、%和*），也可以表示较小的整数。float、double和long double表示带小数点的数。_Bool类型表示布尔值（true和false），_Complex和_Imaginary分别表示复数和虚数。计算机储存方式可分为整数型和浮点数类型。
 
 #### 3.2.1 位、字节和字
