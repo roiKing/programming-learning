@@ -155,3 +155,30 @@ int 关键字表示基本的整数型，可以为正整数、负数或零取值�
 2. 浮点数可以表示的范围比整数大
 3. 对于一些算术运算，浮点数损失的精度更多
 #### 3.3.1 八进制、十六进制
+ 1. 十六进制值由0x或0X前缀
+ 2. 八进制值由0前缀
+以十进制显示数字，使用%d；以八进制显示数字，使用%o；以十六进制显示数字，使用%x；要显示各进制数的前缀0、0x、0X，必须分别使用%#o、%#x、%#X。
+```
+#include <stdio.h>
+/* 以十进制、八进制、十六进制数100 */
+int main(void){
+    int x = 100;
+
+    printf("dec = %d; octal = %o; hex = %x\n", x, x, x);
+    printf("dec = %d; octal = %#o; hex = %#x\n", x, x, x);
+    return 0;
+}
+```
+#### 3.3.2 其他整数型
+1. short int 类型（或者简写为 short ）占用的存储空间可能比 int 类型少，常用于较小数值的场合节省空间。与 int 类似， short 是有符号类型。
+2. long int 或 long 占用的存储空间可能比int多，适用于较大数值的场合。与 int 类似，long 是有符号类型。
+3. long long int 或 long long （C99标准加入）占用的存储空间可能比 long 多，适用于更大数值的场合。该类型至少占64位。与 int 类似，long long 是有符号类型。
+4. unsigned int 或 unsigned 只用于非负值的场合，这种类型与有符号类型表示的范围不同，用于表示正负号的位现在用于表示另一个二进制位，所以无符号整形可以表示更大的数。
+5. 在 C90 标准中，添加了 unsigned long int 或 unsigned long 或 unsigned short int 或 unsigned short 类型。C99 标准又添加了 unsigned long long int 或 unsigned long long  。
+6. 在任何有符号类型前面添加关键字 signed ，可强调使用有符号类型的意图。例如 short 、 short int 、 signed short 、 signed short int 都表示同一种类型。
+C语言只规定了 short 占用的存储空间不能多于 int ， long 占用的存储空间不能少于 int 。
+#### 3.3.3 int 类型选择
+1. 首先，考虑 unsigned 类型。这种类型的数常用于计数，因为计数不用负数。而且 unsigned 类型可以表示更大的正数。
+2. 超出 int 类型的取值范围，且在 long 类型的取值范围内时，使用 long 类型。对于哪些 long 占用的空间比 int 大的系统，使用 long 类型会减慢预算速度。如非必要，请不要使用 long 类型。如果在 long 类型和 int 类型占用空间相同的机器编写代码，当确实需要32位的整数时，应使用 long 类型而不是 int 类型，以便把程序移植到16位机后仍然可以正常工作。
+3. 在 int 设置为32位的系统中要使用16位的值，应使用 short 类型以节省存储空间。使用 short 类型另一个原因是，计算机中某些组件使用的硬件寄存器是16位。
+##### 3.3.3.1 long 常量和 long long 常量

@@ -8,6 +8,4 @@ int main(void){
     printf("%d minus %d is %d\n", ten);
 
     return 0;
-    
-
 }
