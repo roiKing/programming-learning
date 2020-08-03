@@ -182,3 +182,43 @@ C语言只规定了 short 占用的存储空间不能多于 int ， long 占用�
 2. 超出 int 类型的取值范围，且在 long 类型的取值范围内时，使用 long 类型。对于哪些 long 占用的空间比 int 大的系统，使用 long 类型会减慢预算速度。如非必要，请不要使用 long 类型。如果在 long 类型和 int 类型占用空间相同的机器编写代码，当确实需要32位的整数时，应使用 long 类型而不是 int 类型，以便把程序移植到16位机后仍然可以正常工作。
 3. 在 int 设置为32位的系统中要使用16位的值，应使用 short 类型以节省存储空间。使用 short 类型另一个原因是，计算机中某些组件使用的硬件寄存器是16位。
 ##### 3.3.3.1 long 常量和 long long 常量
+1. 超出 int 类型能表示的范围，编译器会将其视为 long int 类型
+2. 数字超出 long 可表示的最大值，编译器则将其视为 unsigned long 类型。如果还不够大，编译器则将其视为 long long 或 unsigned long long 类型（前提是编译器能识别这些类型）
+3. 八进制和十六进制常量被视为 int 类型。如果值太大，编译器会一次尝试使用 unsigned int（ %u 表示其值） 、 long 、 unsigned long 、 long long 、 unsigned long long 类型
+4. 要把一个较小的常量作为 long 类型对待，可以在值得末尾加上 l（小写L）或 L 后缀，使用 L 更好。
+5. 在 int 位16位、 long 为32位的系统中，会把7作为16位储存，把7L作为32储存。l或L后缀也可用于八进制和十六进制整数。
+```
+/*整数溢出*/
+#include <stdio.h>
+int main(void)
+{
+    int i = 2147483647;
+    unsigned int j = 4294967295;
+    printf("%d %d %d\n", i, i + 1, i + 2);
+    printf("%u %u %u\n", j, j + 1, j + 2);
+    return 0;
+}
+```
+6. 超过最大值时，unsigned int 类型的变量从0开始，int 类型的变量则从 -2147483648 开始。
+7. 溢出行为是未定义的行为，C标准并未定义有符号类型的溢出规则。
+##### 3.3.3.2 打印short、 long、 long long 和 unsigned 类型
+1. 打印 unsigned int 类型的值，使用 %u 转换说明，打印 long 类型的值，使用 %ld 转换说明。如果系统中 int 和 long 的大小相同，使用 %d 就行。这样的程序被移植到到其他系统（int 和 long 类型的大小不同）中会无法正常工作。在 x 和 o 前面可以使用 l 前缀， %lx 表示以十六进制格式打印 long 类型整数， %lo 表示以八进制格式打印 long 类型整数。虽然C允许使用大写或小写的常量后缀，但是在转换说明中只能使用小写。
+2. 对于 short 类型，可以使用 h 前缀。 %hd 表示以十进制显示 short 类型的整数， %ho 表示以八进制显示 short 类型的整数。h 和 l 前缀都可以和 u 一起使用，用于表示无符号类型。 %lu 表示打印 unsigned long 类型的值。
+```
+// 更多printf()的特性
+#include <stdio.h>
+int main(void)
+{
+    unsigned int un = 3000000000; // int 为32位和short为16位系统
+    short end = 200;
+    long big = 65537;
+    long long verybig = 12345678908642;
+
+    printf("un = %u and not %d\n", un, un);
+    printf("end = %hd and %d\n", end, end);
+    printf("big = %ld and not %hd\n", big, big);
+    printf("verybig = %lld and not %ld\n", verybig, verybig);
+
+    return 0;
+}
+```
