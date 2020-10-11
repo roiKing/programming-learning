@@ -27,7 +27,7 @@ git pull
 git pull origin master
 
 12. 本地更新到github库
-  12.1 git add . 添加更新文件
-  12.2 git commit -m "本次更新哪些内容"
-  12.3 git push origin master 提交更新
+ 1. git add . 添加更新文件
+ 2. git commit -m "本次更新哪些内容"
+ 3. git push origin master 提交更新
 

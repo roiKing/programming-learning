@@ -241,5 +241,34 @@ char 类型用于储存字符，技术层面看，char 是整数类型。因为c
  | \0oo | 八进制（ oo 必须是有效的八进制数，即每个 o 可表示 0~7 中的一个数） |
  | \xhh | 十六进制（ hh 必须是有效的十六进制数，即每个 h 可表示 0~f 中的一个数 |
  
+##### 3.3.5 基本数据类型 小结
+关键字：基本数据类型由11个关键字组成：int、 long、 short、 unsigned、 char、 float、 double、 signed、 _Bool、 _Complex 和 _Imaginary 。
 
+1. 有符号整型：
+ 有符号整型可用于表示整数和负整数。
+   - int --系统给定的基本整数类型。C 语言规定 int 类型不小于 16 位。
+   - short 或 short int --最大的 short 类型整数小于或等于最大的 int 类型整数。 C 语言规定 short 类型至少占 16 位。
+   - long 或 long int --该类型可表示的整数大于或等于最大的 int 类型整数。 C 语言规定 long 类型至少占 32 位。
+   - long long 或 long long int --该类型可表示的整数大于或等于最大的 long 类型整数。 long long 类型至少占 64位。
 
+2. 无符号整型：
+   无符号整型只能用于表示零和正整数，因此无符号整型可表示的正整数比有符号整型的大。在整型类型前加上关键字 unsigned 表明该类型是无符号整型： unsigned int 、 unsigned long 、 unsigned short。单独的 unsigned 相当于 unsigned int 。
+
+字符类型：可打印出来的符号（如 A 、 & 和 + ）都是字符。 char 类型表示一个字符要占用 1 字节内存。出于历史原因， 1 字节通常是 8 位， 但是如果要表示基本字符集，也可以是 16 位或更大。
+- char --字符类型的关键字。有些编译器使用有符号的 char ，而有些则使用无符号的 char 。在需要时，可在 char 前面加上关键字 signed 或 unsigned 来指明具体使用哪一种类型。
+
+布尔类型：布尔值表示 true 和 false 。 C 语言用 1 表示 true， 0 表示 false 。
+- _Bool --布尔类型的关键字。布尔类型是无符号 int 类型， 所占用的空间只要能储存 0 或 1 即可。
+
+实浮点类型：实浮点类型可表示正浮点数和负浮点数。
+- float --系统的基本浮点类型，可精确表示至少 6 位有效数字。
+- double --储存浮点数的范围（可能）更大，能表示比 float 类型更多的有效数字（至少 10 位，通常会更多）和更大的指数。
+- long double --储存浮点数的范围（可能）比 double 更大，能表示比 double 更多的有效数字和更大的指数。
+
+复数和虚数浮点数：虚数类型是可选的类型。复数的实部和虚部类型都基于实浮点类型来构成。
+- float _Complex
+- double _Complex
+- long double _Complex
+- float _Imaginary
+- double _Imaginary
+- long double _Imaginary

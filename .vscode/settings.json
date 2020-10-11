@@ -1,4 +1,5 @@
 {
     "files.autoSave": "onFocusChange",
-    "terminal.integrated.automationShell.windows": ""
+    "terminal.integrated.automationShell.windows": "",
+    "C_Cpp.intelliSenseEngine": "Disabled"
 }
