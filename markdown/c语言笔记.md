@@ -34,7 +34,7 @@
         return 0;
     }
 ```
-    
+
 ## 第二章 C语言概述
 ### 2.1 简单的C程序示例
 ```
@@ -93,7 +93,7 @@ function a()   语句    函数是C程序的构造块
 
 ### 2.7 关键字
 |    ISO    | C | 关键字 | |
-| :---: | :---: | :---: | :---: | 
+| :---: | :---: | :---: | :---: |
 | auto | extern | short | while |
 | break | float | signed | _Alignas |
 | case | for | sizeof | _Alignof |
@@ -225,22 +225,22 @@ int main(void)
 ##### 3.3.4 char 类型
 char 类型用于储存字符，技术层面看，char 是整数类型。因为char类型实际上储存的是整数而不是字符。
  表 3.2 转义序列
- | 转义序列 | 含义 |
- | :----: | :----: |
- | \a | 警报（ANSI C） |
- | \b | 退格 |
- | \f | 换页 |
- | \n | 换行 |
- | \r | 回车 |
- | \t | 水平制表符 |
- | \v | 垂直制表符 |
- | \\ | 反斜杠（\） |
- | \' | 单引号 |
- | \" | 双引号 |
- | \? | 问号 |
- | \0oo | 八进制（ oo 必须是有效的八进制数，即每个 o 可表示 0~7 中的一个数） |
- | \xhh | 十六进制（ hh 必须是有效的十六进制数，即每个 h 可表示 0~f 中的一个数 |
- 
+| 转义序列 | 含义 |
+| :----: | :----: |
+| \a | 警报（ANSI C） |
+| \b | 退格 |
+| \f | 换页 |
+| \n | 换行 |
+| \r | 回车 |
+| \t | 水平制表符 |
+| \v | 垂直制表符 |
+| \\ | 反斜杠（\） |
+| \' | 单引号 |
+| \" | 双引号 |
+| \? | 问号 |
+| \0oo | 八进制（ oo 必须是有效的八进制数，即每个 o 可表示 0~7 中的一个数） |
+| \xhh | 十六进制（ hh 必须是有效的十六进制数，即每个 h 可表示 0~f 中的一个数 |
+
 ##### 3.3.5 基本数据类型 小结
 关键字：基本数据类型由11个关键字组成：int、 long、 short、 unsigned、 char、 float、 double、 signed、 _Bool、 _Complex 和 _Imaginary 。
 
@@ -272,3 +272,48 @@ char 类型用于储存字符，技术层面看，char 是整数类型。因为c
 - float _Imaginary
 - double _Imaginary
 - long double _Imaginary
+  
+
+总结：如何声明简单变量
+  1. 选择需要的类型
+  2. 使用有效的字符给变量起一个变量名
+  3. 按以下格式进行声明：
+
+    类型说明符 变量名;
+  4. 可以同时声明相同类型的多个变量，用逗号分隔各变量名
+  5. 在声明的同时还可以初始化变量
+
+## 第四章 字符串和格式化输入 \ 输出
+### 4.1 char 类型数组和 null 字符
+C语言没有专门用于储存字符串的变量类型，字符串都被储存在char类
+型的数组中。数组由连续的存储单元组成，字符串中的字符被储存在相邻的
+存储单元中，每个单元储存一个字符。
+
+\0 是空字符（null character），C 语言用它标记字符串的结束。空字符不是数字0，它是非打印字符，其ASCII码值是（或等价于）0.C中的字符串一定以空字符结束，这意味着数组的容量必须至少比待存储字符串中的字符数多1。
+
+数组是同类型数据元素的有序序列。
+
+scanf()在遇到第1个空白（空格、制表符或换行符）时就不再读取输入。根据%s转换说明，scanf()只会读取字符串中的一个单词，而不是一整句。
+
+### 4.2 strlen()函数
+
+sizeof 运算符，它以字节为单位给出对象的大小。strlen()函数给出字符串中的字符长度。因为 1 字节储存一个字符。两种方法应用于字符串得到的结果不相同。
+
+```c
+/* praise2.c */
+/* 如果编译器不识别%zd, 尝试换成%u或%lu */
+#include <stdio.h>
+#include <string.h> // 提供strlen()函数的原型
+#define PRAISE "You are an extraordinary being."
+int main(void){
+    char name[40];
+    printf("What's your name? ");
+    scanf("%s", name);
+    printf("Hello, %s.%s\n", name, PRAISE);
+    printf("Your name of %zd letters occupies %zd memory cells.\n", strlen(name), sizeof name);
+    printf("The phrase of praise has %zd letters ", strlen(PRAISE));
+    printf("and occupies %zd memory cells.\n", sizeof PRAISE);
+    return 0;
+}
+```
+
