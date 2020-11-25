@@ -1,0 +1,16 @@
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.csprojAssemblyReference.cache
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.GeneratedMSBuildEditorConfig.editorconfig
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.AssemblyInfoInputs.cache
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.AssemblyInfo.cs
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.csproj.CoreCompileInputs.cache
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.exe
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.deps.json
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.runtimeconfig.json
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.runtimeconfig.dev.json
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.dll
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\ref\c#projectApp.dll
+E:\learnProgram\c#projectApp\bin\Debug\net5.0\c#projectApp.pdb
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.dll
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\ref\c#projectApp.dll
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.pdb
+E:\learnProgram\c#projectApp\obj\Debug\net5.0\c#projectApp.genruntimeconfig.cache
